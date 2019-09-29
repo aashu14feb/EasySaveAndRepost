@@ -21,15 +21,15 @@
     <style name="MyMaterialThemeWhite.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Base.MyMaterialThemeWhite" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/md_grey_200</item>
-        <item name="colorPrimaryDark">@color/md_grey_200</item>
+        <item name="colorPrimary">@color/md_white_1000</item>
+        <item name="colorPrimaryDark">@color/md_white_1000</item>
         <item name="colorAccent">@color/colorPrimaryDark</item>
         <item name="colorControlHighlight">@color/colorPrimary_transparent</item>
         <item name="android:textColorHint">@color/md_grey_400</item>
         <item name="actionBarStyle">@style/MyTheme.ActionBarStyle</item>
+        <item name="android:textColorSecondary">@color/md_black_1000</item>
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">true</item>
-
     </style>
 
     <style name="MyTheme.ActionBarStyle" parent="@style/Widget.AppCompat.ActionBar.Solid">

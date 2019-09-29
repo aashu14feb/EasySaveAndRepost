@@ -30,8 +30,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
             android:id="@+id/adView_detail"
@@ -61,8 +61,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/dp_8"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="@dimen/dp_8">
 
                     <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                         android:id="@+id/profile_image"
@@ -75,8 +75,8 @@
                         android:id="@+id/profileName"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
                         android:layout_marginLeft="@dimen/dp_8"
+                        android:gravity="center_vertical"
                         android:text="Profile Name"
                         android:textColor="@color/md_black_1000"
                         android:textSize="@dimen/dp_14"
@@ -109,45 +109,56 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
                     android:orientation="horizontal"
-                    android:paddingTop="2dp">
+                    android:padding="@dimen/dp_8">
 
-                    <ImageView
-                        android:id="@+id/imd_download"
+                    <com.example.aashish.instasaverapp.widget.CustomTextView
+                        android:id="@+id/tv_download"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:background="@color/bg"
-                        android:src="@drawable/ic_round_save_alt_24px" />
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/dp_8"
+                        android:text="@string/mdi_download"
+                        android:textColor="@color/md_grey_800"
+                        android:textSize="24sp"
+                        app:custom_font="materialdesignicons.ttf" />
 
-                    <ImageView
-                        android:id="@+id/imd_repost"
+                    <com.example.aashish.instasaverapp.widget.CustomTextView
+                        android:id="@+id/tv_repost"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:background="@color/bg"
-                        android:src="@drawable/ic_round_repeat_24px" />
+                        android:paddingLeft="@dimen/dp_16"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="@string/mdi_repeat"
+                        android:textColor="@color/md_grey_800"
+                        android:textSize="24sp"
+                        app:custom_font="materialdesignicons.ttf" />
 
-                    <ImageView
-                        android:id="@+id/imd_share"
+                    <com.example.aashish.instasaverapp.widget.CustomTextView
+                        android:id="@+id/tv_share"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:background="@color/bg"
-                        android:src="@drawable/ic_round_share_24px" />
+                        android:layout_gravity="center"
+                        android:paddingLeft="@dimen/dp_16"
+                        android:gravity="center"
+                        android:text="@string/mdi_share_variant"
+                        android:textColor="@color/md_grey_800"
+                        android:textSize="24sp"
+                        app:custom_font="materialdesignicons.ttf" />
 
-                    <ImageView
-                        android:id="@+id/img_folder"
+                    <com.example.aashish.instasaverapp.widget.CustomTextView
+                        android:id="@+id/tv_folder"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:background="@color/bg"
-                        android:src="@drawable/ic_delete_black_24dp" />
+                        android:layout_gravity="center"
+                        android:paddingLeft="@dimen/dp_16"
+                        android:gravity="center"
+                        android:text="@string/mdi_delete"
+                        android:textColor="@color/md_grey_800"
+                        android:textSize="24sp"
+                        app:custom_font="materialdesignicons.ttf" />
 
                 </LinearLayout>
 

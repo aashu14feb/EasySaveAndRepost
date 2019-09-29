@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.example.aashish.instasaverapp.entity.ImageData;
-import com.example.aashish.instasaverapp.ui.fragment.FragmentFeed;
+import com.example.aashish.instasaverapp.ui.fragment.FeedActivity;
 import com.example.aashish.instasaverapp.ui.fragment.FragmentHome;
 
 public class CustomPagerAdapter extends FragmentStatePagerAdapter {
@@ -36,7 +36,7 @@ public class CustomPagerAdapter extends FragmentStatePagerAdapter {
                 return fragment1;
 
             case 1:
-                FragmentFeed fragment2 = new FragmentFeed();
+                FeedActivity fragment2 = new FeedActivity();
                 return fragment2;
             default:
                 return null;

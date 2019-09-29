@@ -25,20 +25,20 @@ import com.google.android.gms.ads.InterstitialAd;
 
 import java.io.Serializable;
 
-public class FragmentFeed extends Fragment implements View.OnClickListener {
+public class FeedActivity extends Fragment implements View.OnClickListener {
 
     LinearLayout ll_empty;
     CustomTextView btn_start;
     RecyclerView recycler;
     InterstitialAd mInterstitialAd;
 
-    public FragmentFeed() {
+    public FeedActivity() {
     }
 
 
     // TODO: Rename and change types and number of parameters
-    public static FragmentFeed newInstance() {
-        FragmentFeed fragment = new FragmentFeed();
+    public static FeedActivity newInstance() {
+        FeedActivity fragment = new FeedActivity();
         return fragment;
     }
 
@@ -60,7 +60,7 @@ public class FragmentFeed extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.fragment_feed, container, false);
 
 
-        if (AppConstants.TEST_AD) {
+        if (AppConstants.SHOW_AD) {
             AdView mAdView = (AdView) view.findViewById(R.id.adView_feed);
             mAdView.setVisibility(View.VISIBLE);
             AdRequest adRequest = new AdRequest.Builder().build();

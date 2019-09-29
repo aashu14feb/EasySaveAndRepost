@@ -68,7 +68,7 @@ public class FragmentHome extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        if (AppConstants.TEST_AD) {
+        if (AppConstants.SHOW_AD) {
             AdView mAdView = (AdView) view.findViewById(R.id.adView);
             mAdView.setVisibility(GONE);
             AdRequest adRequest = new AdRequest.Builder().build();

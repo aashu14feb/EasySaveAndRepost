@@ -1,5 +1,6 @@
 package com.example.aashish.instasaverapp.utils;
 
+import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -9,9 +10,14 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
+
+import androidx.annotation.NonNull;
 import androidx.core.content.FileProvider;
+
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.aashish.instasaverapp.BuildConfig;
@@ -28,6 +34,16 @@ import java.net.URL;
 
 public class Util {
 
+
+    public static void setLightWhiteStatusBar(@NonNull Activity activity) {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            int flags = activity.getWindow().getDecorView().getSystemUiVisibility();
+            flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+            activity.getWindow().getDecorView().setSystemUiVisibility(flags);
+            activity.getWindow().setStatusBarColor(activity.getResources().getColor(R.color.md_white_1000));
+        }
+    }
 
     public static void openDownloads(Context context){
         int PICKFILE_RESULT_CODE=1;

@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -23,13 +24,14 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.aashish.instasaverapp.entity.ImageData;
 import com.example.aashish.instasaverapp.service.ClipboardService;
 import com.example.aashish.instasaverapp.service.FloatingWidgetService;
-import com.example.aashish.instasaverapp.ui.fragment.FragmentFeed;
+import com.example.aashish.instasaverapp.ui.fragment.FeedActivity;
 import com.example.aashish.instasaverapp.utils.Extras;
 import com.example.aashish.instasaverapp.utils.Util;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.navigation.NavigationView;
 
-public class AppActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+public class AppActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +42,6 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
         setSupportActionBar(appbar);
 
         MobileAds.initialize(this, getString(R.string.ad_mob_appId));
-
 
         initWidgets();
 
@@ -54,27 +55,22 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
 
     private void initWidgets() {
 
+        Util.setLightWhiteStatusBar(this);
         findViewById(R.id.btn_menu).setOnClickListener(this);
         findViewById(R.id.icon_heart).setOnClickListener(this);
-        findViewById(R.id.icon_instagram).setOnClickListener(this);
+        findViewById(R.id.fab_instagram).setOnClickListener(this);
         findViewById(R.id.icon_setting).setOnClickListener(this);
-        ((NavigationView) findViewById(R.id.nav_view)).setNavigationItemSelectedListener(this);
 
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+        super.onBackPressed();
     }
 
     private void addHomeFragment() {
 
-        FragmentFeed fragmentFeed = FragmentFeed.newInstance();
+        FeedActivity fragmentFeed = FeedActivity.newInstance();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.fragment_container, fragmentFeed, fragmentFeed.getClass().getName());
         ft.commit();
@@ -94,12 +90,11 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
         switch (view.getId()) {
 
             case R.id.btn_menu:
-                ((DrawerLayout) findViewById(R.id.drawer_layout)).openDrawer(GravityCompat.START);
                 break;
             case R.id.icon_heart:
                 Util.openRateApppage(this);
                 break;
-            case R.id.icon_instagram:
+            case R.id.fab_instagram:
                 Util.openInstagram(this);
                 break;
             case R.id.icon_setting:
@@ -194,33 +189,34 @@ public class AppActivity extends AppCompatActivity implements NavigationView.OnN
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 
+
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        switch (id) {
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
 
             case R.id.nav_about:
-                ((DrawerLayout) findViewById(R.id.drawer_layout)).closeDrawer(GravityCompat.START);
                 return false;
 
             case R.id.nav_privacy_policy:
-                ((DrawerLayout) findViewById(R.id.drawer_layout)).closeDrawer(GravityCompat.START);
                 return false;
 
             case R.id.nav_rate:
-                ((DrawerLayout) findViewById(R.id.drawer_layout)).closeDrawer(GravityCompat.START);
                 Util.openRateApppage(this);
                 return false;
 
             case R.id.nav_share:
-                ((DrawerLayout) findViewById(R.id.drawer_layout)).closeDrawer(GravityCompat.START);
 
                 return false;
         }
+
         return false;
+
+
     }
 }

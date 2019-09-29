@@ -14,7 +14,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.devbrackets.android.exomedia.listener.OnPreparedListener;
 import com.example.aashish.instasaverapp.AppActivity;
-import com.example.aashish.instasaverapp.MainActivity;
 import com.example.aashish.instasaverapp.R;
 import com.example.aashish.instasaverapp.entity.ImageData;
 import com.example.aashish.instasaverapp.utils.AppConstants;
@@ -48,7 +47,7 @@ public class Fragment_Detail extends AppCompatActivity implements View.OnClickLi
 
         initActionBar();
 
-        if (AppConstants.TEST_AD) {
+        if (AppConstants.SHOW_AD) {
             AdView mAdView = (AdView) findViewById(R.id.adView_detail);
             mAdView.setVisibility(View.VISIBLE);
             AdRequest adRequest = new AdRequest.Builder().build();
@@ -91,9 +90,9 @@ public class Fragment_Detail extends AppCompatActivity implements View.OnClickLi
             TextView likes = findViewById(R.id.likes);
             likes.setText(imageData.likes + " Likes");
 
-            findViewById(R.id.imd_download).setOnClickListener(view -> new ImageDownloadTask(mContext).execute(imageData.url, imageData.name, imageData.video_url, String.valueOf(imageData.is_Video)));
+            findViewById(R.id.tv_download).setOnClickListener(view -> new ImageDownloadTask(mContext).execute(imageData.url, imageData.name, imageData.video_url, String.valueOf(imageData.is_Video)));
 
-            findViewById(R.id.imd_repost).setOnClickListener(view -> {
+            findViewById(R.id.tv_repost).setOnClickListener(view -> {
 
                 if (Util.isPackageInstalled("com.instagram.android", mContext.getPackageManager()))
                     Util.postOnInstagram(mContext, imageData.url, imageData.name, imageData.description, imageData.is_Video, imageData.video_url);
@@ -103,9 +102,9 @@ public class Fragment_Detail extends AppCompatActivity implements View.OnClickLi
 
             });
 
-            findViewById(R.id.imd_share).setOnClickListener(view -> Util.shareImageTask(mContext, imageData.url, imageData.name, imageData.description, imageData.is_Video, imageData.video_url));
+            findViewById(R.id.tv_share).setOnClickListener(view -> Util.shareImageTask(mContext, imageData.url, imageData.name, imageData.description, imageData.is_Video, imageData.video_url));
 
-            findViewById(R.id.img_folder).setOnClickListener(view -> {
+            findViewById(R.id.tv_folder).setOnClickListener(view -> {
                 ImageData.deleteSafe(imageData);
                 startActivity(new Intent(this, AppActivity.class));
             });
