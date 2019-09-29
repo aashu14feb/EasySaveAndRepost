@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="mdi_cash_100" translatable="false">&#xF115;</string>
+    <string name="mdi_cash_multiple" translatable="false">&#xF116;</string>
+    <string name="mdi_credit_card_multiple" translatable="false">&#xF19c;</string>
+
+    <string name="mdi_chevron_down" translatable="false">&#xF140;</string>
+    <string name="mdi_chevron_left" translatable="false">&#xF141;</string>
+    <string name="mdi_chevron_right" translatable="false">&#xF142;</string>
+    <string name="mdi_arrow_left" translatable="false">&#xF04D;</string>
+    <string name="mdi_close" translatable="false">&#xF156;</string>
+
+    <string name="mdi_wallet" translatable="false">&#xF584;</string>
+    <string name="mdi_wallet_giftcard" translatable="false">&#xF585;</string>
+    <string name="mdi_heart" translatable="false">&#xF2D1;</string>
+    <string name="mdi_heart_outline" translatable="false">&#xF2D5;</string>
+    <string name="mdi_heart_half" translatable="false">&#xf6de;</string>
+    <string name="mdi_settings" translatable="false">&#xF493;</string>
+    <string name="mdi_settings_outline" translatable="false">&#xF8BA;</string>
+    <string name="mdi_map_marker" translatable="false">&#xF34E;</string>
+    <string name="mdi_map_marker_outline" translatable="false">&#xF7D8;</string>
+    <string name="mdi_map_marker_radius" translatable="false">&#xF352;</string>
+    <string name="mdi_map_marker_plus" translatable="false">&#xF651;</string>
+
+    <string name="mdi_history" translatable="false">&#xF2DA;</string>
+    <string name="mdi_basket_fill" translatable="false">&#xF077;</string>
+    <string name="mdi_account_heart" translatable="false">&#xF898;</string>
+    <string name="mdi_account_settings" translatable="false">&#xF630;</string>
+    <string name="mdi_account_settings_variant" translatable="false">&#xF631;</string>
+    <string name="mdi_cart" translatable="false">&#xF110;</string>
+    <string name="mdi_cart_outline" translatable="false">&#xF111;</string>
+    <string name="mdi_cart_plus" translatable="false">&#xF112;</string>
+    <string name="mdi_cloud_off_outline" translatable="false">&#xF164;</string>
+    <string name="mdi_share_variant" translatable="false">&#xF497;</string>
+
+    <string name="mdi_food" translatable="false">&#xF25A;</string>
+    <string name="mdi_food_off" translatable="false">&#xF5F3;</string>
+    <string name="mdi_food_variant" translatable="false">&#xF25C;</string>
+    <string name="mdi_rice" translatable="false">&#xF7E9;</string>
+    <string name="mdi_blur_radial" translatable="false">&#xF0B8;</string>
+    <string name="mdi_silverware" translatable="false">&#xF4A3;</string>
+    <string name="mdi_silverware_variant" translatable="false">&#xF4A6;</string>
+
+    <string name="mdi_crosshairs_gps" translatable="false">&#xF1A4;</string>
+    <string name="mdi_home" translatable="false">&#xF2DC;</string>
+    <string name="mdi_briefcase" translatable="false">&#xF0D6;</string>
+    <string name="mdi_delete" translatable="false">&#xF1C0;</string>
+
+    <string name="mdi_emoticon_happy" translatable="false">&#xF1F5;</string>
+    <string name="mdi_emoticon_sad" translatable="false">&#xF1F8;</string>
+
+    <string name="mdi_check" translatable="false">&#xf12c;</string>
+    <string name="mdi_check_circle_outline" translatable="false">&#xF5E1;</string>
+    <string name="mdi_close_circle_outline" translatable="false">&#xF15A;</string>
+    <string name="fa_minus" translatable="false">&#xf068;</string>
+    <string name="mdi_clock" translatable="false">&#xF150;</string>
+    <string name="mdi_circle" translatable="false">&#xF764;</string>
+    <string name="mdi_circle_outline" translatable="false">&#xF765;</string>
+    <string name="mdi_check_circle" translatable="false">&#xF5E0;</string>
+    <string name="mdi_close_circle" translatable="false">&#xF159;</string>
+    <string name="mdi_decagram" translatable="false">&#xF76B;</string>
+    <string name="mdi_decagram_outline" translatable="false">&#xF76C;</string>
+
+    <string name="mdi_telegram" translatable="false">&#xF501;</string>
+    <string name="mdi_menu" translatable="false">&#xF35C;</string>
+    <string name="mdi_bell" translatable="false">&#xF09A;</string>
+    <string name="mdi_bell_outline" translatable="false">&#xF09C;</string>
+    <string name="mdi_star" translatable="false">&#xF4CE;</string>
+    <string name="mdi_star_outline" translatable="false">&#xF4D2;</string>
+    <string name="mdi_adjust" translatable="false">&#xF01A;</string>
+    <string name="mdi_calendar" translatable="false">&#xF0ED;</string>
+    <string name="mdi_calendar_range" translatable="false">&#xF678;</string>
+
+    <string name="mdi_download" translatable="false">&#xF1DA;</string>
+    <string name="mdi_upload" translatable="false">&#xF552;</string>
+    <string name="mdi_email" translatable="false">&#xF1EE;</string>
+    <string name="mdi_email_outline" translatable="false">&#xF1F0;</string>
+    <string name="mdi_email_open" translatable="false">&#xF1EF;</string>
+    <string name="mdi_dot_vertical" translatable="false">&#xF1D9;</string>
+    <string name="mdi_pencil_circle" translatable="false">&#xF6FE;</string>
+    <string name="mdi_pencil_box_outline" translatable="false">&#xF3ED;</string>
+    <string name="mdi_square_edit_outline" translatable="false">&#xF90B;</string>
+    <string name="mdi_account" translatable="false">&#xF004;</string>
+    <string name="mdi_account_multiple_plus" translatable="false">&#xF010;</string>
+    <string name="mdi_account_multiple_outline" translatable="false">&#xF00F;</string>
+
+    <string name="mdi_headset" translatable="false">&#xF2CE;</string>
+    <string name="mdi_phone" translatable="false">&#xF3F2;</string>
+    <string name="mdi_phone_classic" translatable="false">&#xF602;</string>
+    <string name="mdi_cellphone_android" translatable="false">&#xF11D;</string>
+    <string name="mdi_cellphone_text" translatable="false">&#xF8D1;</string>
+
+    <string name="mdi_filter_outline" translatable="false">&#xF233;</string>
+    <string name="mdi_filter_variant" translatable="false">&#xF236;</string>
+    <string name="mdi_image_multiple" translatable="false">&#xF2F9;</string>
+    <string name="mdi_image_single" translatable="false">&#xF2E9;</string>
+    <string name="mdi_image" translatable="false">&#xF2E9;</string>
+    <string name="mdi_camera" translatable="false">&#xF100;</string>
+    <string name="mdi_information" translatable="false">&#xF2FC;</string>
+    <string name="mdi_information_outline" translatable="false">&#xF2FD;</string>
+
+    <string name="mdi_login_variant" translatable="false">&#xF5FC;</string>
+    <string name="mdi_server_network_off" translatable="false">&#xF48E;</string>
+    <string name="mdi_lead_pencil" translatable="false">&#xF64F;</string>
+    <string name="mdi_folder" translatable="false">&#xF24B;</string>
+    <string name="mdi_folder_open" translatable="false">&#xF76F;</string>
+    <string name="mdi_bike" translatable="false">&#xF0A3;</string>
+    <string name="mdi_motor_bike" translatable="false">&#xF37C;</string>
+    <string name="mdi_timer_off" translatable="false">&#xF51E;</string>
+    <string name="mdi_worker" translatable="false">&#xF5B5;</string>
+    <string name="mdi_magnify" translatable="false">&#xF349;</string>
+
+    <string name="mdi_thumb_down" translatable="false">&#xF511;</string>
+    <string name="mdi_thumb_down_outline" translatable="false">&#xF512;</string>
+    <string name="mdi_thumb_up" translatable="false">&#xF513;</string>
+    <string name="mdi_thumb_up_outline" translatable="false">&#xF514;</string>
+    <string name="mdi_comment_outline" translatable="false">&#xF182;</string>
+
+    <string name="mdi_google_play" translatable="false">&#xF2BC;</string>
+    <string name="mdi_facebook" translatable="false">&#xF20C;</string>
+    <string name="mdi_instagram" translatable="false">&#xF2FE;</string>
+    <string name="mdi_twitter" translatable="false">&#xF544;</string>
+    <string name="mdi_youtube" translatable="false">&#xF5C3;</string>
+    <string name="mdi_linkedin" translatable="false">&#xF33B;</string>
+    <string name="mdi_pinterest" translatable="false">&#xF407;</string>
+    <string name="mdi_medium" translatable="false">&#xF35A;</string>
+    <string name="mdi_google" translatable="false">&#xf2ad;</string>
+    <string name="mdi_google_plus" translatable="false">&#xf2bd;</string>
+
+    <string name="mdi_plus" translatable="false">&#xF415;</string>
+    <string name="mdi_minus" translatable="false">&#xF374;</string>
+    <string name="mdi_plus_circle_outline" translatable="false">&#xF419;</string>
+    <string name="mdi_minus_circle_outline" translatable="false">&#xf377;</string>
+    <string name="mdi_leaf" translatable="false">&#xf32a;</string>
+    <string name="mdi_ticket_percent" translatable="false">&#xf723;</string>
+
+    <string name="mdi_alert_outline" translatable="false">&#xF02A;</string>
+    <string name="mdi_alert_circle" translatable="false">&#xF028;</string>
+    <string name="mdi_alert_circle_outline" translatable="false">&#xF5D6;</string>
+    <string name="mdi_logout_variant" translatable="false">&#xF5FD;</string>
+    <string name="mdi_microphone" translatable="false">&#xF36C;</string>
+    <string name="mdi_microphone_outline" translatable="false">&#xF36E;</string>
+
+    <string name="mdi_cake" translatable="false">&#xF0E9;</string>
+    <string name="mdi_gender_female" translatable="false">&#xF29C;</string>
+    <string name="mdi_gender_male" translatable="false">&#xF29D;</string>
+    <string name="mdi_gender_male_female" translatable="false">&#xF29E;</string>
+    <string name="mdi_gender_transgender" translatable="false">&#xF29F;</string>
+    <string name="mdi_file" translatable="false">&#xF214;</string>
+    <string name="mdi_file_document" translatable="false">&#xF219;</string>
+    <string name="mdi_file_document_box" translatable="false">&#xF21A;</string>
+
+    <string name="mdi_help" translatable="false">&#xF2D6;</string>
+    <string name="mdi_help_circle" translatable="false">&#xF2D7;</string>
+    <string name="mdi_help_circle_outline" translatable="false">&#xF625;</string>
+    <string name="mdi_view_dashboard" translatable="false">&#xF56E;</string>
+    <string name="mdi_city" translatable="false">&#xF146;</string>
+    <string name="mdi_bookmark" translatable="false">&#xf0c0;</string>
+
+    <string name="mdi_toolbox" translatable="false">&#xf9ab;</string>
+    <string name="mdi_toolbox_outline" translatable="false">&#xf9ac;</string>
+
+    <string name="mdi_play" translatable="false">&#xf40a;</string>
+    <string name="mdi_play_circle" translatable="false">&#xf40c;</string>
+    <string name="mdi_play_circle_outline" translatable="false">&#xf40d;</string>
+    <string name="mdi_video" translatable="false">&#xf567;</string>
+
+    <string name="mdi_chat" translatable="false">&#xfb55;</string>
+    <string name="mdi_format_list_bulleted" translatable="false">&#xf279;</string>\
+    <string name="mdi_map" translatable="false">&#xf34d;</string>
+    <string name="mdi_currency_inr" translatable="false">&#xF1AF;</string>
+    <string name="mdi_account_card_details" translatable="false">&#xF5D2;</string>
+
+    <string name="mdi_current_salary" translatable="false">&#xfbff;</string>
+    <string name="mdi_education" translatable="false">&#xf474;</string>
+    <string name="mdi_work_experience" translatable="false">&#xf587;</string>
+
+    <string name="mdi_rupee" translatable="false">&#xf587;</string>
+    <string name="mdi_message_text_outline" translatable="false">&#xf36a;</string>
+
+
+    <string name="mdi_mdi_send" translatable="false">&#xf48a;</string>
+    <string name="mdi_mdi_send_circle" translatable="false">&#xfdd4;</string>
+    <string name="mdi_mdi_send_circle_outline" translatable="false">&#xfdd5;</string>
+
+    <string name="mdi_autorenew" translatable="false">&#xF06A;</string>
+    <string name="mdi_square" translatable="false">&#xF763;</string>
+
+    <string name="mdi_repeat" translatable="false">&#xf456;</string>
+    <string name="mdi_drag" translatable="false">&#xf1db;</string>
+
+
+</resources>

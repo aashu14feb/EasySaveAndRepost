@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <!--   Root container of Floating Widget View  -->
+    <LinearLayout
+        android:id="@+id/root_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--   View while view is expanded   -->
+        <LinearLayout
+            android:id="@+id/expanded_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/rounded_corner"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/ll_action_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.example.aashish.instasaverapp.widget.CustomTextView
+                        android:id="@+id/floating_share_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:text="@string/mdi_share_variant"
+                        android:textColor="@color/icon_actionbar"
+                        android:textSize="24sp"
+                        app:custom_font="materialdesignicons.ttf" />
+
+                    <com.example.aashish.instasaverapp.widget.CustomTextView
+                        android:id="@+id/floating_repost_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:text="@string/mdi_repeat"
+                        android:textColor="@color/icon_actionbar"
+                        android:textSize="24sp"
+                        app:custom_font="materialdesignicons.ttf" />
+
+                    <com.example.aashish.instasaverapp.widget.CustomTextView
+                        android:id="@+id/floating_download_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:text="@string/mdi_download"
+                        android:textColor="@color/icon_actionbar"
+                        android:textSize="24sp"
+                        app:custom_font="materialdesignicons.ttf" />
+
+                    <com.example.aashish.instasaverapp.widget.CustomTextView
+                        android:id="@+id/close_floating_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:text="@string/mdi_close"
+                        android:textColor="@color/icon_actionbar"
+                        android:textSize="24sp"
+                        app:custom_font="materialdesignicons.ttf" />
+
+                </LinearLayout>
+
+                <com.example.aashish.instasaverapp.widget.CustomTextView
+                    android:id="@+id/floating_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:text="@string/mdi_drag"
+                    android:textColor="@color/icon_actionbar"
+                    android:textSize="24sp"
+                    app:custom_font="materialdesignicons.ttf" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- <RelativeLayout
+             android:id="@+id/collapse_view"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal"
+             android:visibility="visible">
+
+             <ImageView
+                 android:id="@+id/collapsed_iv"
+                 android:layout_width="52dp"
+                 android:layout_height="52dp"
+                 android:layout_marginTop="8dp"
+                 android:src="@drawable/app_icon"
+                 tools:ignore="ContentDescription" />
+
+         </RelativeLayout>-->
+
+    </LinearLayout>
+</FrameLayout>

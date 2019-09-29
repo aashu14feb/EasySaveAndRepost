@@ -1,0 +1,80 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    signingConfigs {
+        release {
+            keyAlias 'quitword'
+            keyPassword 'Twist@123'
+            storeFile file('D:/InstaSaverApp/releasekeystore.jks')
+            storePassword 'Twist@123'
+        }
+    }
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.quitword.instasaveandrepost"
+        //applicationId "com.quitword.test"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 10
+        versionName "1.1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        signingConfig signingConfigs.release
+
+        repositories {
+            mavenCentral()
+            maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        }
+    }
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+        }
+        release {
+            //Quitword
+            //Twist@123
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    productFlavors {
+    }
+    lintOptions {
+        checkReleaseBuilds false // Add this
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha04'
+    implementation 'com.google.android.material:material:1.1.0-alpha06'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha5'
+    implementation 'androidx.vectordrawable:vectordrawable:1.1.0-beta01'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0-beta01'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-alpha05'
+    implementation 'org.jetbrains.anko:anko-commons:0.10.4'
+    implementation 'com.android.volley:volley:1.1.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+    implementation 'com.reactiveandroid:reactiveandroid:1.4.3'
+    implementation 'com.github.tajchert:nammu:1.2.0'
+    implementation 'com.github.apl-devs:appintro:v4.2.3'
+    implementation 'com.google.android.gms:play-services-ads:15.0.1'
+    implementation 'com.devbrackets.android:exomedia:4.2.0'
+    implementation project(':more-apps-release')
+}

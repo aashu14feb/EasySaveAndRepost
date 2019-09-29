@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_download"
+        android:icon="@drawable/ic_round_save_alt_24px"
+        android:iconTint="@color/black"
+        android:title="@string/title_download" />
+
+    <item
+        android:id="@+id/navigation_share"
+        android:icon="@drawable/ic_round_share_24px"
+        android:iconTint="@color/black"
+        android:title="@string/title_share" />
+
+    <!--<item
+        android:id="@+id/navigation_instagram"
+        android:icon="@drawable/ic_instagram"
+        android:title="@string/title_instagram" />-->
+
+    <item
+        android:id="@+id/navigation_repost"
+        android:icon="@drawable/ic_round_repeat_24px"
+        android:iconTint="@color/black"
+        android:title="@string/title_repost" />
+
+</menu>

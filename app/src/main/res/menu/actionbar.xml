@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_overlay"
+        app:showAsAction="always"
+        app:iconTint="@color/icon_actionbar"
+        android:icon="@drawable/ic_settings_black_24dp"
+        android:title="" />
+
+    <item
+       android:id="@+id/menu_heart"
+        app:showAsAction="always"
+        app:iconTint="@color/icon_actionbar"
+        android:icon="@drawable/ic_favorite"
+        android:title="" />
+
+    <item
+        android:id="@+id/menu_instagram"
+        app:showAsAction="always"
+        app:iconTint="@color/icon_actionbar"
+        android:icon="@drawable/ic_instagram"
+        android:title="" />
+
+
+
+</menu>

@@ -1,0 +1,29 @@
+<resources>
+
+    <string name="app_folder_name">InstaSave</string>
+    <string name="first">First</string>
+    <string name="second">Second</string>
+
+    <string name="title_download">Download</string>
+    <string name="title_share">Share</string>
+    <string name="title_instagram">Instagram</string>
+    <string name="title_repost">Repost</string>
+    <string name="empty_message">It appears you haven\'t copied an instagram link yet.</string>
+    <string name="lets_start">Lets Start</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="intro_title1">Simple One Tap</string>
+    <string name="intro_title2">Save Instantly</string>
+    <string name="intro_title3">Easy Access</string>
+    <string name="error_open_instagram">It seems you dont have instagram app installed on device.</string>
+    <string name="intro_desc1">Simply open up instagram and select copy link of image or video.Our app handle the rest.</string>
+    <string name="intro_desc2">Download,Share or Repost on onr tap.</string>
+    <string name="intro_desc3">Get all the downloaded Images/Videos into beautiful overview.Share them or download to storage.</string>
+
+    <string name="alert_dialog_title">Please enable \"Permit drawing over other apps\"</string>
+    <string name="alert_dialog_msg">Click "Open setting" to go to settings. Press the back button once you\'ve enabled the setting. </string>
+
+
+</resources>
