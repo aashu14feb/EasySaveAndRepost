@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/nav_rate"
+        android:icon="@drawable/ic_star"
+        android:title="@string/menu_rate"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/nav_share"
+        android:icon="@drawable/ic_menu_share"
+        android:title="@string/menu_share"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/nav_about"
+        android:icon="@drawable/ic_info"
+        android:title="@string/menu_about"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/nav_privacy_policy"
+        android:icon="@drawable/ic_format"
+        android:title="@string/menu_privacy_policy"
+        app:showAsAction="never" />
+
+</menu>
