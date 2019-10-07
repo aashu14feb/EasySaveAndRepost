@@ -1,11 +1,13 @@
 package com.example.aashish.instasaverapp;
 
+import android.Manifest;
 import android.app.ActivityManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,8 +19,7 @@ import android.view.View;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.aashish.instasaverapp.entity.ImageData;
@@ -28,8 +29,9 @@ import com.example.aashish.instasaverapp.ui.fragment.FeedActivity;
 import com.example.aashish.instasaverapp.utils.Extras;
 import com.example.aashish.instasaverapp.utils.Util;
 import com.google.android.gms.ads.MobileAds;
-import com.google.android.material.bottomappbar.BottomAppBar;
-import com.google.android.material.navigation.NavigationView;
+
+import pl.tajchert.nammu.Nammu;
+import pl.tajchert.nammu.PermissionCallback;
 
 public class AppActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -46,6 +48,7 @@ public class AppActivity extends AppCompatActivity implements View.OnClickListen
         initWidgets();
 
     }
+
 
     @Override
     protected void onNewIntent(Intent intent) {
@@ -98,8 +101,20 @@ public class AppActivity extends AppCompatActivity implements View.OnClickListen
                 Util.openInstagram(this);
                 break;
             case R.id.icon_setting:
+                if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+                    Nammu.askForPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE, new PermissionCallback() {
+                        @Override
+                        public void permissionGranted() {
+                            openSettingActivity();
+                        }
 
-                openSettingActivity();
+                        @Override
+                        public void permissionRefused() {
+
+                        }
+                    });
+                else
+                    openSettingActivity();
                 break;
         }
 

@@ -8,16 +8,14 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/MyMaterialThemeWhite">
+        android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/transparent"
-            app:contentInsetStart="0dp"
-            app:popupTheme="@style/MyMaterialThemeWhite">
+            app:contentInsetStart="0dp">
 
             <include
                 android:id="@+id/action_bar"

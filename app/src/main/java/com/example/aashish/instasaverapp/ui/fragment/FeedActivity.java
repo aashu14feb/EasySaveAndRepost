@@ -70,6 +70,7 @@ public class FeedActivity extends Fragment implements View.OnClickListener {
         ll_empty = view.findViewById(R.id.ll_empty);
         btn_start = view.findViewById(R.id.btn_start);
         btn_start.setOnClickListener(this);
+
         recycler = view.findViewById(R.id.recycler);
         recycler.setLayoutManager(new LinearLayoutManager(getActivity()));
 

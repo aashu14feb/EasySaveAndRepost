@@ -6,16 +6,20 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.aashish.instasaverapp.R;
 import com.example.aashish.instasaverapp.entity.ImageData;
 import com.example.aashish.instasaverapp.listener.OnImageClickListener;
+import com.example.aashish.instasaverapp.utils.EqualSpacingItemDecoration;
 import com.example.aashish.instasaverapp.utils.ItemOffsetDecoration;
 import com.example.aashish.instasaverapp.widget.CustomTextView;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+
+import static com.example.aashish.instasaverapp.utils.EqualSpacingItemDecoration.GRID;
 
 public class AdapterFeed extends RecyclerView.Adapter<AdapterFeed.ViewHolder> {
 
@@ -34,8 +38,14 @@ public class AdapterFeed extends RecyclerView.Adapter<AdapterFeed.ViewHolder> {
             profileName = (CustomTextView) view.findViewById(R.id.profileName);
 
             recyclerView = (RecyclerView) view.findViewById(R.id.recycler);
+            recyclerView.setHasFixedSize(true);
+
             recyclerView.setLayoutManager(new GridLayoutManager(view.getContext(), 3));
-            recyclerView.addItemDecoration(new ItemOffsetDecoration(view.getContext(), R.dimen.dp_1));
+            /*try {
+                recyclerView.addItemDecoration(new EqualSpacingItemDecoration(R.dimen.dp_1), GRID);
+            }catch (Exception e){
+
+            }*/
 
         }
     }

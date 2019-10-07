@@ -41,8 +41,7 @@
             android:id="@+id/recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/dp_8"
-            android:useDefaultMargins="true">
+            android:paddingTop="@dimen/dp_8">
 
         </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
