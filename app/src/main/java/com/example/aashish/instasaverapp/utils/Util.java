@@ -6,31 +6,29 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Environment;
-import android.provider.MediaStore;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.FileProvider;
 
-import android.view.View;
-import android.widget.Toast;
-
 import com.example.aashish.instasaverapp.BuildConfig;
 import com.example.aashish.instasaverapp.R;
 import com.example.aashish.instasaverapp.entity.ImageData;
+import com.networks.NetworkListener;
+import com.networks.NetworkRequest;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
-import java.io.IOException;
-import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Util {
 
@@ -45,8 +43,8 @@ public class Util {
         }
     }
 
-    public static void openDownloads(Context context){
-        int PICKFILE_RESULT_CODE=1;
+    public static void openDownloads(Context context) {
+        int PICKFILE_RESULT_CODE = 1;
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.setType("file/*");
         context.startActivity(intent);
@@ -105,7 +103,7 @@ public class Util {
 
     public static void postOnInstagram(final Context context, final String surl, final String name, String desc, final boolean isVideo, final String videourl) {
 
-        new DownloadAndShareTask(context,true).execute(surl, name, videourl,String.valueOf(isVideo));
+        new DownloadAndShareTask(context, true).execute(surl, name, videourl, String.valueOf(isVideo));
 
         new AsyncTask<String, Void, Void>() {
             @Override
@@ -116,7 +114,7 @@ public class Util {
                 String format = isVideo ? ".mp4" : ".png";
                 String type = isVideo ? "video/*" : "image/*";
                 String url = isVideo ? videourl : surl;
-                String mediaPath = (PATH +name + format);
+                String mediaPath = (PATH + name + format);
 
                 try {
 
@@ -150,11 +148,10 @@ public class Util {
 
     public static void shareImageTask(final Context context, final String surl, final String name, String desc, final boolean isVideo, final String videourl) {
         //ShareContent(context,name,desc ,isVideo,videourl);
-        new DownloadAndShareTask(context,false).execute(surl, name, videourl,String.valueOf(isVideo));
+        new DownloadAndShareTask(context, false).execute(surl, name, videourl, String.valueOf(isVideo));
     }
 
-    public static void openFolder(final Context context)
-    {
+    public static void openFolder(final Context context) {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         String PATH = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/" + context.getString(R.string.app_folder_name) + "/";
         Uri uri = Uri.parse(PATH);
@@ -167,13 +164,13 @@ public class Util {
         String PATH = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString() + "/" + "InstaSaver" + "/";
         String format = isVideo ? ".mp4" : ".png";
         String type = isVideo ? "video/*" : "image/*";
-        File mediaPath = new File(PATH ,name + format);
+        File mediaPath = new File(PATH, name + format);
 
         try {
             Intent shareIntent = new Intent();
             shareIntent.setAction(Intent.ACTION_SEND);
             //Uri uri = Uri.fromFile(mediaPath);
-            Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID+".provider", mediaPath);
+            Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID + ".provider", mediaPath);
             shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
             shareIntent.setType(type);
             context.startActivity(Intent.createChooser(shareIntent, "Share to"));
@@ -205,7 +202,7 @@ public class Util {
         return true;
     }
 
-    public static ImageData parseJsonAndGetUrl(Context context, String json){
+    public static ImageData parseJsonAndGetUrl(Context context, String json) {
 
         try {
             JSONObject jsonObj = new JSONObject(json);
@@ -251,6 +248,12 @@ public class Util {
 
         return null;
 
+    }
+
+    public static void getImageData(Context context, String rawUrl, NetworkListener networkListener) {
+        rawUrl = rawUrl + "&__a=1;";
+        Map params = new HashMap<String, String>();
+        NetworkRequest.INSTANCE.doGet(rawUrl, params, networkListener);
     }
 
 

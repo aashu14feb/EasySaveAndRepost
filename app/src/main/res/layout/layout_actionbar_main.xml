@@ -65,18 +65,15 @@
         android:visibility="gone"
         app:custom_font="segoe_ui_regular.ttf" />
 
-    <com.example.aashish.instasaverapp.widget.CustomTextView
+    <ImageView
         android:id="@+id/icon_setting"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="@dimen/dp_52"
+        android:layout_height="@dimen/dp_52"
         android:gravity="center"
         android:padding="@dimen/dp_8"
+        android:src="@drawable/app_icon"
         android:foreground="@drawable/ripple_rectangle"
-        android:text="@string/mdi_layers"
-        android:textColor="@color/md_black_1000"
-        android:textSize="@dimen/dp_24"
-        android:visibility="visible"
-        app:custom_font="materialdesignicons-webfont.ttf" />
+        android:visibility="visible"/>
 
     <com.example.aashish.instasaverapp.widget.CustomTextView
         android:id="@+id/icon_heart"

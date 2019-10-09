@@ -3,6 +3,8 @@
     <string name="app_folder_name">InstaSave</string>
     <string name="first">First</string>
     <string name="second">Second</string>
+    <string name="checking">Checking</string>
+    <string name="success">Added Successfully</string>
 
     <string name="title_download">Download</string>
     <string name="title_share">Share</string>

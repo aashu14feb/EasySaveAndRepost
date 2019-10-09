@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.aashish.instasaverapp.utils.Util;
 import com.github.paolorotolo.appintro.AppIntro;
 import com.github.paolorotolo.appintro.AppIntroFragment;
 import com.github.paolorotolo.appintro.model.SliderPage;
@@ -15,6 +16,7 @@ public class IntroActivity extends AppIntro {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Util.setLightWhiteStatusBar(this);
         SliderPage sliderPage = new SliderPage();
         sliderPage.setTitle(getResources().getString(R.string.intro_title1));
         sliderPage.setDescription(getResources().getString(R.string.intro_desc1));
@@ -62,14 +64,12 @@ public class IntroActivity extends AppIntro {
     @Override
     public void onSkipPressed(Fragment currentFragment) {
         super.onSkipPressed(currentFragment);
-        this.startActivity(new Intent(this, MainActivity.class));
         finish();
     }
 
     @Override
     public void onDonePressed(Fragment currentFragment) {
         super.onDonePressed(currentFragment);
-        this.startActivity(new Intent(this, MainActivity.class));
         finish();
     }
 

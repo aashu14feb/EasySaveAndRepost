@@ -34,7 +34,7 @@
         <activity
             android:name=".IntroActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppThemeNoActionBar" />
+            android:theme="@style/MyMaterialThemeWhite" />
 
         <activity
             android:name=".ui.fragment.Fragment_Detail"

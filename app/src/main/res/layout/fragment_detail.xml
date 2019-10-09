@@ -146,7 +146,7 @@
                         android:padding="@dimen/dp_8"
                         android:gravity="center"
                         android:foreground="@drawable/ripple_rectangle"
-                        android:text="@string/mdi_share_variant"
+                        android:text="@string/mdi_share_outline"
                         android:textColor="@color/md_grey_800"
                         android:textSize="24sp"
                         app:custom_font="materialdesignicons.ttf" />

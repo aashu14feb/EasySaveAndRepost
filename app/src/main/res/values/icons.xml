@@ -33,6 +33,7 @@
     <string name="mdi_cart_plus" translatable="false">&#xF112;</string>
     <string name="mdi_cloud_off_outline" translatable="false">&#xF164;</string>
     <string name="mdi_share_variant" translatable="false">&#xF497;</string>
+    <string name="mdi_share_outline" translatable="false">&#xf931;</string>
 
     <string name="mdi_food" translatable="false">&#xF25A;</string>
     <string name="mdi_food_off" translatable="false">&#xF5F3;</string>
@@ -46,6 +47,7 @@
     <string name="mdi_home" translatable="false">&#xF2DC;</string>
     <string name="mdi_briefcase" translatable="false">&#xF0D6;</string>
     <string name="mdi_delete" translatable="false">&#xF1C0;</string>
+    <string name="mdi_delete_outline" translatable="false">&#xf9e6;</string>
 
     <string name="mdi_emoticon_happy" translatable="false">&#xF1F5;</string>
     <string name="mdi_emoticon_sad" translatable="false">&#xF1F8;</string>
@@ -73,6 +75,7 @@
     <string name="mdi_calendar_range" translatable="false">&#xF678;</string>
 
     <string name="mdi_download" translatable="false">&#xF1DA;</string>
+    <string name="mdi_download_outline" translatable="false">&#xfb6b;</string>
     <string name="mdi_upload" translatable="false">&#xF552;</string>
     <string name="mdi_email" translatable="false">&#xF1EE;</string>
     <string name="mdi_email_outline" translatable="false">&#xF1F0;</string>
@@ -191,6 +194,7 @@
     <string name="mdi_drag" translatable="false">&#xf1db;</string>
     <string name="mdi_star_half" translatable="false">&#xf4d0;</string>
     <string name="mdi_layers" translatable="false">&#xf328;</string>
+    <string name="mdi_content_paste" translatable="false">&#xf192;</string>
 
 
 </resources>

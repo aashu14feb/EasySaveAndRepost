@@ -63,7 +63,27 @@ public class ClipboardService extends Service {
                 Log.i(TAG, "onStartCommand Clip" + newClip);
 
                 if (newClip.startsWith(filter)) {
-                    getImageData(newClip, true);
+                    Util.getImageData(context, newClip, new NetworkListener() {
+                        @Override
+                        public void onRequest() {
+
+                        }
+
+                        @Override
+                        public void onResponse(@NotNull NetworkResponse response) {
+                            if (!response.isSucceed()) {
+                                ImageData imageData = Util.parseJsonAndGetUrl(context,response.getText());
+                                if (imageData != null) {
+                                    Intent intent = new Intent();
+                                    intent.setAction(MY_ACTION);
+                                    intent.putExtra(Extras.LINK_RAW_DATA, response.getText());
+                                    context.sendBroadcast(intent);
+                                    ImageData.setImageLastDownload(imageData);
+                                }
+                                createNotification(response.getText());
+                            }
+                        }
+                    });
                 }
 
             }
@@ -121,33 +141,7 @@ public class ClipboardService extends Service {
         notificationManager.notify(requestCode, notificationBuilder.build());
     }
 
-    void getImageData(String rawUrl, final boolean notify) {
 
-        rawUrl = rawUrl + "&__a=1;";
-        Map params = new HashMap<String, String>();
-        NetworkRequest.INSTANCE.doGet(rawUrl, params, new NetworkListener() {
-            @Override
-            public void onRequest() {
-
-            }
-
-            @Override
-            public void onResponse(@NotNull NetworkResponse response) {
-                if (!response.isSucceed()) {
-                    ImageData imageData = Util.parseJsonAndGetUrl(context,response.getText());
-                    if (imageData != null) {
-                        Intent intent = new Intent();
-                        intent.setAction(MY_ACTION);
-                        intent.putExtra(Extras.LINK_RAW_DATA, response.getText());
-                        sendBroadcast(intent);
-                        ImageData.setImageLastDownload(imageData);
-                    }
-                    if (notify)
-                        createNotification(response.getText());
-                }
-            }
-        });
-    }
 
     @Override
     public void onDestroy() {

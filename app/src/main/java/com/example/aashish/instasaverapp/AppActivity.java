@@ -3,6 +3,8 @@ package com.example.aashish.instasaverapp;
 import android.Manifest;
 import android.app.ActivityManager;
 import android.content.BroadcastReceiver;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -29,11 +31,21 @@ import com.example.aashish.instasaverapp.ui.fragment.FeedActivity;
 import com.example.aashish.instasaverapp.utils.Extras;
 import com.example.aashish.instasaverapp.utils.Util;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.snackbar.Snackbar;
+import com.networks.NetworkListener;
+import com.networks.NetworkResponse;
+
+import org.jetbrains.annotations.NotNull;
 
 import pl.tajchert.nammu.Nammu;
 import pl.tajchert.nammu.PermissionCallback;
 
+import static android.content.ClipDescription.MIMETYPE_TEXT_PLAIN;
+
 public class AppActivity extends AppCompatActivity implements View.OnClickListener {
+
+    public final static String filter = "https://www.instagram.com/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,13 +59,26 @@ public class AppActivity extends AppCompatActivity implements View.OnClickListen
 
         initWidgets();
 
-    }
+        BottomAppBar bottomNavigationView = (BottomAppBar) findViewById(R.id.bottomAppBar);
+        bottomNavigationView.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.nav_paste:
+                        checkAndLoadCopiedLink(bottomNavigationView);
+                        break;
+                }
+                return false;
+            }
+        });
 
+        bottomNavigationView.replaceMenu(R.menu.menu_bottom_navigation);
+    }
 
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        addHomeFragment();
+        addReplaceHomeFragment();
     }
 
     private void initWidgets() {
@@ -71,7 +96,7 @@ public class AppActivity extends AppCompatActivity implements View.OnClickListen
         super.onBackPressed();
     }
 
-    private void addHomeFragment() {
+    private void addReplaceHomeFragment() {
 
         FeedActivity fragmentFeed = FeedActivity.newInstance();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -157,7 +182,7 @@ public class AppActivity extends AppCompatActivity implements View.OnClickListen
     void refreshAdapter(String rawdata) {
         if (!rawdata.equals("")) {
             ImageData imgData = Util.parseJsonAndGetUrl(this, rawdata);
-            addHomeFragment();
+            addReplaceHomeFragment();
         }
     }
 
@@ -187,7 +212,7 @@ public class AppActivity extends AppCompatActivity implements View.OnClickListen
     @Override
     protected void onResume() {
         super.onResume();
-        addHomeFragment();
+        addReplaceHomeFragment();
         startFloatingWidgetService();
     }
 
@@ -215,7 +240,8 @@ public class AppActivity extends AppCompatActivity implements View.OnClickListen
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
 
-            case R.id.nav_about:
+            case R.id.nav_help:
+                startActivity(new Intent(this, IntroActivity.class));
                 return false;
 
             case R.id.nav_privacy_policy:
@@ -233,5 +259,48 @@ public class AppActivity extends AppCompatActivity implements View.OnClickListen
         return false;
 
 
+    }
+
+    void checkAndLoadCopiedLink(View v) {
+
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        String newClip = "";
+
+        if (!(clipboard.hasPrimaryClip())) {
+
+            Snackbar.make(v, getString(R.string.empty_message), Snackbar.LENGTH_SHORT);
+        } else if (!(clipboard.getPrimaryClipDescription().hasMimeType(MIMETYPE_TEXT_PLAIN))) {
+
+            Snackbar.make(v, getString(R.string.empty_message), Snackbar.LENGTH_SHORT);
+
+        } else {
+
+            //since the clipboard contains plain text.
+            ClipData.Item data = clipboard.getPrimaryClip().getItemAt(0);
+
+            // Gets the clipboard as text.
+            newClip = data.getText().toString();
+
+            if (newClip.startsWith(filter)) {
+                Util.getImageData(AppActivity.this, newClip, new NetworkListener() {
+                    @Override
+                    public void onRequest() {
+                        Snackbar.make(v, getString(R.string.checking), Snackbar.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onResponse(@NotNull NetworkResponse response) {
+                        if (!response.isSucceed()) {
+                            ImageData imageData = Util.parseJsonAndGetUrl(AppActivity.this, response.getText());
+                            if (imageData != null) {
+                                ImageData.setImageLastDownload(imageData);
+                                addReplaceHomeFragment();
+                                Snackbar.make(v, getString(R.string.success), Snackbar.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+                });
+            }
+        }
     }
 }

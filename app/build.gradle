@@ -76,5 +76,4 @@ dependencies {
     implementation 'com.github.apl-devs:appintro:v4.2.3'
     implementation 'com.google.android.gms:play-services-ads:15.0.1'
     implementation 'com.devbrackets.android:exomedia:4.2.0'
-    implementation project(':more-apps-release')
 }
