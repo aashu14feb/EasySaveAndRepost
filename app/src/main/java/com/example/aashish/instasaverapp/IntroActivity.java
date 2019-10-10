@@ -17,32 +17,42 @@ public class IntroActivity extends AppIntro {
         super.onCreate(savedInstanceState);
 
         Util.setLightWhiteStatusBar(this);
-        SliderPage sliderPage = new SliderPage();
-        sliderPage.setTitle(getResources().getString(R.string.intro_title1));
-        sliderPage.setDescription(getResources().getString(R.string.intro_desc1));
-        sliderPage.setTitleColor(getResources().getColor(R.color.colorAccent));
-        sliderPage.setDescColor(getResources().getColor(R.color.text_color));
-        sliderPage.setImageDrawable(R.drawable.intro1);
-        sliderPage.setBgColor(getResources().getColor(R.color.bg));
-        addSlide(AppIntroFragment.newInstance(sliderPage));
+
+        SliderPage sliderPage1 = new SliderPage();
+        sliderPage1.setTitle(getResources().getString(R.string.intro_title1));
+        sliderPage1.setDescription(getResources().getString(R.string.intro_desc1));
+        sliderPage1.setTitleColor(getResources().getColor(R.color.colorAccent));
+        sliderPage1.setDescColor(getResources().getColor(R.color.text_color));
+        sliderPage1.setImageDrawable(R.drawable.i1);
+        sliderPage1.setBgColor(getResources().getColor(R.color.bg));
+        addSlide(AppIntroFragment.newInstance(sliderPage1));
 
         SliderPage sliderPage2 = new SliderPage();
         sliderPage2.setTitle(getResources().getString(R.string.intro_title2));
         sliderPage2.setDescription(getResources().getString(R.string.intro_desc2));
-        sliderPage2.setImageDrawable(R.drawable.intro2);
-        sliderPage2.setBgColor(getResources().getColor(R.color.bg));
         sliderPage2.setTitleColor(getResources().getColor(R.color.colorAccent));
         sliderPage2.setDescColor(getResources().getColor(R.color.text_color));
+        sliderPage2.setImageDrawable(R.drawable.i2);
+        sliderPage2.setBgColor(getResources().getColor(R.color.bg));
         addSlide(AppIntroFragment.newInstance(sliderPage2));
 
         SliderPage sliderPage3 = new SliderPage();
         sliderPage3.setTitle(getResources().getString(R.string.intro_title3));
         sliderPage3.setDescription(getResources().getString(R.string.intro_desc3));
-        sliderPage3.setImageDrawable(R.drawable.intro3);
+        sliderPage3.setImageDrawable(R.drawable.i3);
         sliderPage3.setBgColor(getResources().getColor(R.color.bg));
         sliderPage3.setTitleColor(getResources().getColor(R.color.colorAccent));
         sliderPage3.setDescColor(getResources().getColor(R.color.text_color));
         addSlide(AppIntroFragment.newInstance(sliderPage3));
+
+        SliderPage sliderPage4 = new SliderPage();
+        sliderPage4.setTitle(getResources().getString(R.string.intro_title4));
+        sliderPage4.setDescription(getResources().getString(R.string.intro_desc4));
+        sliderPage4.setImageDrawable(R.drawable.i4);
+        sliderPage4.setBgColor(getResources().getColor(R.color.bg));
+        sliderPage4.setTitleColor(getResources().getColor(R.color.colorAccent));
+        sliderPage4.setDescColor(getResources().getColor(R.color.text_color));
+        addSlide(AppIntroFragment.newInstance(sliderPage4));
 
 
         // OPTIONAL METHODS
