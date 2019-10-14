@@ -1,5 +1,6 @@
 package com.example.aashish.instasaverapp.utils;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -7,13 +8,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Environment;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
 import com.example.aashish.instasaverapp.BuildConfig;
@@ -104,46 +106,6 @@ public class Util {
     public static void postOnInstagram(final Context context, final String surl, final String name, String desc, final boolean isVideo, final String videourl) {
 
         new DownloadAndShareTask(context, true).execute(surl, name, videourl, String.valueOf(isVideo));
-
-        new AsyncTask<String, Void, Void>() {
-            @Override
-            protected Void doInBackground(String... params) {
-
-
-                String PATH = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString() + "/" + "InstaSaver" + "/";
-                String format = isVideo ? ".mp4" : ".png";
-                String type = isVideo ? "video/*" : "image/*";
-                String url = isVideo ? videourl : surl;
-                String mediaPath = (PATH + name + format);
-
-                try {
-
-                   /* Intent shareIntent = new Intent();
-                    shareIntent.setAction(Intent.ACTION_SEND);
-                    shareIntent.setPackage("com.instagram.android");
-                    URL furl = new URL(url);
-                    Bitmap image = BitmapFactory.decodeStream(furl.openConnection().getInputStream());
-                    String bitmapPath = MediaStore.Images.Media.insertImage(context.getContentResolver(), image, "title", null);
-                    Uri bitmapUri = Uri.parse(bitmapPath);
-                    shareIntent.putExtra(Intent.EXTRA_STREAM, bitmapUri);
-                    shareIntent.setType(type);
-                    context.startActivity(shareIntent);*/
-
-                    /*Intent share = new Intent(Intent.ACTION_SEND);
-                    share.setType(type);
-                    File media = new File(mediaPath);
-                    Uri uri = Uri.fromFile(media);
-                    share.putExtra(Intent.EXTRA_STREAM, uri);
-                    context.startActivity(Intent.createChooser(share, "Share to"));*/
-
-                } catch (Exception e) {
-                    System.out.println(e);
-                }
-
-                return null;
-            }
-
-        }.execute();
     }
 
     public static void shareImageTask(final Context context, final String surl, final String name, String desc, final boolean isVideo, final String videourl) {
@@ -254,6 +216,24 @@ public class Util {
         rawUrl = rawUrl + "&__a=1;";
         Map params = new HashMap<String, String>();
         NetworkRequest.INSTANCE.doGet(rawUrl, params, networkListener);
+    }
+
+    public static boolean checkPermission(Activity activity, int code) {
+        if (ContextCompat.checkSelfPermission(activity,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(activity,
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    code);
+
+            return false;
+        } else {
+
+        }
+
+        return true;
+
     }
 
 

@@ -46,11 +46,14 @@ public class FeedActivity extends Fragment implements View.OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mInterstitialAd = new InterstitialAd(getContext());
 
-        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_detail));
+        if(AppConstants.SHOW_AD) {
+            mInterstitialAd = new InterstitialAd(getContext());
 
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+            mInterstitialAd.setAdUnitId(getString(R.string.interstitial_detail));
+
+            mInterstitialAd.loadAd(new AdRequest.Builder().build());
+        }
     }
 
     @Override

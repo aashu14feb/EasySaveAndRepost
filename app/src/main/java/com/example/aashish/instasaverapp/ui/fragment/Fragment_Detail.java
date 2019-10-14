@@ -2,6 +2,7 @@ package com.example.aashish.instasaverapp.ui.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -29,6 +31,10 @@ public class Fragment_Detail extends AppCompatActivity implements View.OnClickLi
 
     Context mContext;
     ImageData imageData;
+
+    private final int PERMISSION_DOWNLOAD = 1000;
+    private final int PERMISSION_SHARE = 1001;
+    private final int PERMISSION_REPOST = 1002;
 
     public Fragment_Detail() {
 
@@ -90,19 +96,32 @@ public class Fragment_Detail extends AppCompatActivity implements View.OnClickLi
             TextView likes = findViewById(R.id.likes);
             likes.setText(imageData.likes + " Likes");
 
-            findViewById(R.id.tv_download).setOnClickListener(view -> new ImageDownloadTask(mContext).execute(imageData.url, imageData.name, imageData.video_url, String.valueOf(imageData.is_Video)));
+            findViewById(R.id.tv_download).setOnClickListener(view -> {
+                if (Util.checkPermission(Fragment_Detail.this, PERMISSION_DOWNLOAD)) {
+                    downLoadImage();
+                }
+            });
 
             findViewById(R.id.tv_repost).setOnClickListener(view -> {
 
-                if (Util.isPackageInstalled("com.instagram.android", mContext.getPackageManager()))
-                    Util.postOnInstagram(mContext, imageData.url, imageData.name, imageData.description, imageData.is_Video, imageData.video_url);
-                else {
+                if (Util.isPackageInstalled("com.instagram.android", mContext.getPackageManager())) {
+                    if (Util.checkPermission(Fragment_Detail.this, PERMISSION_REPOST)) {
+                        repostImage();
+                    }
+                } else {
                     Toast.makeText(mContext, "Instagram not installed", Toast.LENGTH_SHORT).show();
                 }
 
             });
 
-            findViewById(R.id.tv_share).setOnClickListener(view -> Util.shareImageTask(mContext, imageData.url, imageData.name, imageData.description, imageData.is_Video, imageData.video_url));
+            findViewById(R.id.tv_share).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (Util.checkPermission(Fragment_Detail.this, PERMISSION_SHARE)) {
+                        shareImage();
+                    }
+                }
+            });
 
             findViewById(R.id.tv_folder).setOnClickListener(view -> {
                 ImageData.deleteSafe(imageData);
@@ -136,6 +155,40 @@ public class Fragment_Detail extends AppCompatActivity implements View.OnClickLi
             case R.id.btn_back:
                 onBackPressed();
                 break;
+        }
+    }
+
+    void downLoadImage() {
+        new ImageDownloadTask(mContext).execute(imageData.url, imageData.name, imageData.video_url, String.valueOf(imageData.is_Video));
+    }
+
+    void shareImage() {
+        Util.shareImageTask(mContext, imageData.url, imageData.name, imageData.description, imageData.is_Video, imageData.video_url);
+    }
+
+    void repostImage() {
+        Util.postOnInstagram(mContext, imageData.url, imageData.name, imageData.description, imageData.is_Video, imageData.video_url);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+            switch (requestCode) {
+                case PERMISSION_DOWNLOAD:
+                    downLoadImage();
+                    break;
+
+                case PERMISSION_SHARE:
+                    shareImage();
+                    break;
+
+                case PERMISSION_REPOST:
+                    repostImage();
+                    break;
+
+            }
         }
     }
 }

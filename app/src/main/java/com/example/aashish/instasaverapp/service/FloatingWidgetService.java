@@ -391,7 +391,6 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
                 intent.setAction(MyReceiver.MyReceiver_ACTION);
                 this.sendBroadcast(intent);*/
 
-
                 Util.shareImageTask(this, imagedata.url, imagedata.name, imagedata.description, imagedata.is_Video, imagedata.video_url);
 
                 //Intent intent = new Intent(FloatingWidgetService.this, MainActivity.class);
