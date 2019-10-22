@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dp_24"
+        android:background="@drawable/rounded_corner_solid_white_small"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/dp_24"
+        android:paddingTop="@dimen/dp_24"
+        android:paddingRight="@dimen/dp_24">
+
+
+        <app.repostit.widget.CustomTextView
+            android:id="@+id/dialog_tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:gravity="center"
+            android:text="Title"
+            android:textColor="@color/md_grey_800"
+            android:textSize="@dimen/dp_20"
+            android:visibility="visible"
+            app:custom_font="segoe_ui_bold.ttf" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_24"
+            android:layout_marginBottom="@dimen/dp_24"
+            android:layout_gravity="center">
+
+            <!--   Root container of Floating Widget View  -->
+            <LinearLayout
+                android:id="@+id/root_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!--   View while view is expanded   -->
+                <LinearLayout
+                    android:id="@+id/expanded_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_corner"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/ll_action_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <app.repostit.widget.CustomTextView
+                                android:id="@+id/floating_share_icon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:paddingLeft="8dp"
+                                android:paddingRight="8dp"
+                                android:paddingTop="@dimen/dp_8"
+                                android:paddingBottom="@dimen/dp_8"
+                                android:text="@string/mdi_share_variant"
+                                android:textColor="@color/icon_actionbar"
+                                android:textSize="24sp"
+                                app:custom_font="materialdesignicons.ttf" />
+
+                            <app.repostit.widget.CustomTextView
+                                android:id="@+id/floating_repost_icon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:paddingLeft="8dp"
+                                android:paddingRight="8dp"
+                                android:paddingTop="@dimen/dp_8"
+                                android:paddingBottom="@dimen/dp_8"
+                                android:text="@string/mdi_repeat"
+                                android:textColor="@color/icon_actionbar"
+                                android:textSize="24sp"
+                                app:custom_font="materialdesignicons.ttf" />
+
+                            <app.repostit.widget.CustomTextView
+                                android:id="@+id/floating_download_icon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:paddingLeft="8dp"
+                                android:paddingRight="8dp"
+                                android:paddingTop="@dimen/dp_8"
+                                android:paddingBottom="@dimen/dp_8"
+                                android:text="@string/mdi_download"
+                                android:textColor="@color/icon_actionbar"
+                                android:textSize="24sp"
+                                app:custom_font="materialdesignicons.ttf" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <app.repostit.widget.CustomTextView
+                    android:id="@+id/dialog_tv_message"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:gravity="center"
+                    android:text="message"
+                    android:textColor="@color/md_grey_800"
+                    android:textSize="@dimen/dp_16"
+                    android:visibility="visible"
+                    app:custom_font="segoe_ui_regular.ttf" />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_24"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <app.repostit.widget.CustomTextView
+                android:id="@+id/dialog_btn_okay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginRight="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_24"
+                android:background="@drawable/rounded_bg"
+                android:enabled="true"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:padding="@dimen/dp_10"
+                android:text="@string/submit"
+                android:textAllCaps="true"
+                android:textColor="@color/md_white_1000"
+                android:textSize="@dimen/dp_16"
+                android:visibility="visible"
+                app:custom_font="segoe_ui_regular.ttf" />
+
+            <app.repostit.widget.CustomTextView
+                android:id="@+id/dialog_btn_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:padding="@dimen/dp_8"
+                android:text="@string/lets_start"
+                android:textAllCaps="true"
+                android:textColor="@color/md_grey_600"
+                android:textSize="@dimen/dp_12"
+                app:custom_font="segoe_ui_regular.ttf" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
