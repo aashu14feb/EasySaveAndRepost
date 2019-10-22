@@ -21,14 +21,14 @@
         app:menu="@menu/menu_bottom_navigation"
         app:backgroundTint="@color/md_grey_200"
         app:buttonGravity="bottom|top"
-        app:fabAlignmentMode="center"/>
+        app:fabAlignmentMode="end"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_instagram"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_instagram"
-        app:backgroundTint="@color/colorPrimary"
+        android:background="@drawable/circle_bg"
         app:fabSize="normal"
         app:layout_anchor="@id/bottomAppBar" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

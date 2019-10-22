@@ -9,5 +9,19 @@
         android:enabled="true"
         app:showAsAction="always" />
 
+    <item
+        android:id="@+id/nav_help"
+        android:title="@string/menu_help"
+        android:icon="@drawable/ic_help_24"
+        android:enabled="true"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/nav_share"
+        android:icon="@drawable/ic_share_outline"
+        android:title="@string/menu_share"
+        android:enabled="true"
+        app:showAsAction="always" />
+
 
 </menu>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#dd2a7b</color>
-    <color name="colorPrimaryDark">#e35495</color>
+    <color name="colorPrimary">#B71F50</color>
+    <color name="colorPrimaryDark">#EF323E</color>
     <color name="colorAccent">#e35495</color>
     <color name="icon_actionbar">#FAFAFA</color>
     <color name="text_color_button">#FAFAFA</color>

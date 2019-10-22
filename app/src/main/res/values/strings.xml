@@ -46,5 +46,6 @@
     <string name="menu_send">Send</string>
     <string name="title_activity_app">AppActivity</string>
     <string name="open_setting">Open Setting</string>
+    <string name="title_activity_privacy_policy">Privacy Policy</string>
 
 </resources>

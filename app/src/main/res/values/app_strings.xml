@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_folder_name">InstaSave</string>
+    <string name="app_folder_name">RepostIt</string>
     <string name="first">First</string>
     <string name="second">Second</string>
     <string name="checking">Checking</string>
@@ -10,8 +10,13 @@
     <string name="title_share">Share</string>
     <string name="title_instagram">Instagram</string>
     <string name="title_repost">Repost</string>
-    <string name="empty_message">It appears you haven\'t copied an instagram link yet.</string>
+    <string name="empty_message">Now open instagram and start copying.</string>
+    <string name="nothing_copied">It seems tha you haven\'t copied anything.</string>
     <string name="lets_start">Lets Start</string>
+    <string name="submit">Submit</string>
+    <string name="ignore">Ignore</string>
+    <string name="description">description</string>
+    <string name="cancel">Cancel</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -27,7 +32,8 @@
     <string name="intro_desc4">Download,Share or Repost on onr tap.</string>
 
 
-    <string name="alert_dialog_title">Please enable \"Permit drawing over other apps\"</string>
+   <!-- <string name="alert_dialog_title">Please enable \"Permit drawing over other apps\"</string>-->
+    <string name="alert_dialog_title">Enable Floating Bar</string>
     <string name="alert_dialog_msg">Click "Open setting" to go to settings. Press the back button once you\'ve enabled the setting. </string>
 
 

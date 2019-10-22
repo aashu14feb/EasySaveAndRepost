@@ -18,10 +18,10 @@ tools:showIn="navigation_view">
 
 <item android:title="About">
     <menu>
-        <item
+       <!-- <item
             android:id="@+id/nav_about"
             android:icon="@drawable/ic_info"
-            android:title="@string/menu_about" />
+            android:title="@string/menu_about" />-->
         <item
             android:id="@+id/nav_privacy_policy"
             android:icon="@drawable/ic_format"

@@ -195,6 +195,7 @@
     <string name="mdi_star_half" translatable="false">&#xf4d0;</string>
     <string name="mdi_layers" translatable="false">&#xf328;</string>
     <string name="mdi_content_paste" translatable="false">&#xf192;</string>
+    <string name="mdi_undo_variant" translatable="false">&#xf54d;</string>
 
 
 </resources>

@@ -34,7 +34,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <com.example.aashish.instasaverapp.widget.CustomTextView
+                    <app.repostit.widget.CustomTextView
                         android:id="@+id/floating_share_icon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
                         android:textSize="24sp"
                         app:custom_font="materialdesignicons.ttf" />
 
-                    <com.example.aashish.instasaverapp.widget.CustomTextView
+                    <app.repostit.widget.CustomTextView
                         android:id="@+id/floating_repost_icon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
                         android:textSize="24sp"
                         app:custom_font="materialdesignicons.ttf" />
 
-                    <com.example.aashish.instasaverapp.widget.CustomTextView
+                    <app.repostit.widget.CustomTextView
                         android:id="@+id/floating_download_icon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -79,24 +79,24 @@
                         android:textSize="24sp"
                         app:custom_font="materialdesignicons.ttf" />
 
-                    <com.example.aashish.instasaverapp.widget.CustomTextView
-                        android:id="@+id/close_floating_view"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:paddingLeft="8dp"
-                        android:paddingRight="8dp"
-                        android:paddingTop="4dp"
-                        android:paddingBottom="4dp"
-                        android:text="@string/mdi_close"
-                        android:textColor="@color/icon_actionbar"
-                        android:textSize="24sp"
-                        app:custom_font="materialdesignicons.ttf" />
-
                 </LinearLayout>
 
-                <com.example.aashish.instasaverapp.widget.CustomTextView
+                <app.repostit.widget.CustomTextView
+                    android:id="@+id/close_floating_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:text="@string/mdi_close"
+                    android:textColor="@color/icon_actionbar"
+                    android:textSize="24sp"
+                    app:custom_font="materialdesignicons.ttf" />
+
+                <app.repostit.widget.CustomTextView
                     android:id="@+id/floating_menu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

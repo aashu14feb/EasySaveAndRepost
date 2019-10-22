@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.aashish.instasaverapp.AppActivity">
+    tools:context=".AppActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/bg"
-            tools:context=".ui.fragment.Fragment_Detail">
+            tools:context="app.repostit.ui.fragment.Fragment_Detail">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -71,7 +71,7 @@
                         app:civ_border_color="@color/colorPrimary"
                         app:civ_border_width="1dp" />
 
-                    <com.example.aashish.instasaverapp.widget.CustomTextView
+                    <app.repostit.widget.CustomTextView
                         android:id="@+id/profileName"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -112,53 +112,53 @@
                     android:orientation="horizontal"
                     android:padding="@dimen/dp_8">
 
-                    <com.example.aashish.instasaverapp.widget.CustomTextView
+                    <app.repostit.widget.CustomTextView
                         android:id="@+id/tv_download"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:foreground="@drawable/ripple_rectangle"
                         android:gravity="center"
                         android:padding="@dimen/dp_8"
-                        android:foreground="@drawable/ripple_rectangle"
                         android:text="@string/mdi_download"
                         android:textColor="@color/md_grey_800"
                         android:textSize="24sp"
                         app:custom_font="materialdesignicons.ttf" />
 
-                    <com.example.aashish.instasaverapp.widget.CustomTextView
+                    <app.repostit.widget.CustomTextView
                         android:id="@+id/tv_repost"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/dp_8"
                         android:layout_gravity="center"
                         android:foreground="@drawable/ripple_rectangle"
                         android:gravity="center"
+                        android:padding="@dimen/dp_8"
                         android:text="@string/mdi_repeat"
                         android:textColor="@color/md_grey_800"
                         android:textSize="24sp"
                         app:custom_font="materialdesignicons.ttf" />
 
-                    <com.example.aashish.instasaverapp.widget.CustomTextView
+                    <app.repostit.widget.CustomTextView
                         android:id="@+id/tv_share"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:padding="@dimen/dp_8"
-                        android:gravity="center"
                         android:foreground="@drawable/ripple_rectangle"
+                        android:gravity="center"
+                        android:padding="@dimen/dp_8"
                         android:text="@string/mdi_share_outline"
                         android:textColor="@color/md_grey_800"
                         android:textSize="24sp"
                         app:custom_font="materialdesignicons.ttf" />
 
-                    <com.example.aashish.instasaverapp.widget.CustomTextView
+                    <app.repostit.widget.CustomTextView
                         android:id="@+id/tv_folder"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:padding="@dimen/dp_8"
-                        android:gravity="center"
                         android:foreground="@drawable/ripple_rectangle"
+                        android:gravity="center"
+                        android:padding="@dimen/dp_8"
                         android:text="@string/mdi_delete"
                         android:textColor="@color/md_grey_800"
                         android:textSize="24sp"

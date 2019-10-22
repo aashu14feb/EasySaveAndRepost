@@ -15,12 +15,11 @@ android {
     }
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.quitword.instasaveandrepost"
-        //applicationId "com.quitword.test"
+        applicationId "app.repostit"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 10
-        versionName "1.1.0"
+        versionCode 1
+        versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         signingConfig signingConfigs.release
@@ -77,3 +76,6 @@ dependencies {
     implementation 'com.google.android.gms:play-services-ads:15.0.1'
     implementation 'com.devbrackets.android:exomedia:4.2.0'
 }
+
+//E91E63
+//FFEB3B

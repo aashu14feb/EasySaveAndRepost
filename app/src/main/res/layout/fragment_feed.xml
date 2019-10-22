@@ -5,7 +5,7 @@
     android:id="@+id/container_feed"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context="app.repostit.MainActivityOld">
 
     <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/adView_feed"
@@ -30,18 +30,19 @@
         android:orientation="vertical"
         android:layout_centerInParent="true">
 
-        <com.example.aashish.instasaverapp.widget.CustomTextView
+        <app.repostit.widget.CustomTextView
             android:id="@+id/text_empty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="12dp"
+            android:layout_gravity="center"
             android:text="@string/empty_message"
             android:textColor="@color/md_grey_800"
             android:textSize="20sp"
             app:custom_font="materialdesignicons.ttf" />
 
-        <com.example.aashish.instasaverapp.widget.CustomTextView
+        <app.repostit.widget.CustomTextView
             android:id="@+id/btn_start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,6 +53,7 @@
             android:paddingTop="@dimen/dp_12"
             android:paddingRight="@dimen/dp_24"
             android:paddingBottom="@dimen/dp_12"
+            android:layout_marginTop="@dimen/dp_24"
             android:text="@string/lets_start"
             android:textColor="@color/md_white_1000"
             android:textSize="20sp"
