@@ -68,15 +68,15 @@
         android:id="@+id/srl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/dp_52">
+        android:layout_marginBottom="@dimen/dp_52"
+        android:layout_below="@+id/adView_feed">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingTop="8dp"
-            android:visibility="visible"
-            android:layout_below="@+id/adView_feed">
+            android:visibility="visible">
 
         </androidx.recyclerview.widget.RecyclerView>
 

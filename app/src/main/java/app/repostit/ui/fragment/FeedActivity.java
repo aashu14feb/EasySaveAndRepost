@@ -67,11 +67,13 @@ public class FeedActivity extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.fragment_feed, container, false);
 
 
+        AdView mAdView = (AdView) view.findViewById(R.id.adView_feed);
         if (AppConstants.SHOW_AD) {
-            AdView mAdView = (AdView) view.findViewById(R.id.adView_feed);
             mAdView.setVisibility(View.VISIBLE);
             AdRequest adRequest = new AdRequest.Builder().build();
             mAdView.loadAd(adRequest);
+        }else{
+            mAdView.setVisibility(View.GONE);
         }
 
         ll_empty = view.findViewById(R.id.ll_empty);

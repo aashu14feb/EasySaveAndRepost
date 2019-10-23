@@ -325,7 +325,7 @@ public class AppActivity extends AppCompatActivity implements View.OnClickListen
             Snackbar.make(v, getString(R.string.nothing_copied), Snackbar.LENGTH_SHORT).show();
         } else if (!(clipboard.getPrimaryClipDescription().hasMimeType(MIMETYPE_TEXT_PLAIN))) {
 
-            Snackbar.make(v, getString(R.string.empty_message), Snackbar.LENGTH_SHORT);
+            Snackbar.make(v, getString(R.string.nothing_copied), Snackbar.LENGTH_SHORT);
 
         } else {
 
@@ -354,6 +354,8 @@ public class AppActivity extends AppCompatActivity implements View.OnClickListen
                         }
                     }
                 });
+            }else{
+                Snackbar.make(v, getString(R.string.nothing_copied), Snackbar.LENGTH_SHORT).show();
             }
         }
     }
