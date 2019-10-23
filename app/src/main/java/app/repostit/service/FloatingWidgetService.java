@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import app.repostit.BuildConfig;
 import app.repostit.R;
 import app.repostit.entity.ImageData;
 import app.repostit.utils.ImageDownloadTask;
@@ -79,7 +80,14 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         registerReceiver(broadcastReceiver, intentFilter);
     }
 
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
 
+        if (BuildConfig.DEBUG)
+            Toast.makeText(this, "Service Stared", Toast.LENGTH_SHORT).show();
+        return super.onStartCommand(intent, flags, startId);
+
+    }
 
     /*  Add Remove View to Window Manager  */
     private View addRemoveView(LayoutInflater inflater) {
@@ -348,11 +356,18 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
     };
 
     void showActionButtons(boolean show) {
+
+        mFloatingWidgetView.setVisibility(show ? View.VISIBLE : View.GONE);
         mFloatingWidgetView.findViewById(R.id.floating_share_icon).setVisibility(show ? View.VISIBLE : View.GONE);
         mFloatingWidgetView.findViewById(R.id.floating_download_icon).setVisibility(show ? View.VISIBLE : View.GONE);
         mFloatingWidgetView.findViewById(R.id.floating_repost_icon).setVisibility(show ? View.VISIBLE : View.GONE);
         mFloatingWidgetView.findViewById(R.id.close_floating_view).setVisibility(show ? View.VISIBLE : View.GONE);
         mFloatingWidgetView.findViewById(R.id.expanded_container).setVisibility(show ? View.VISIBLE : View.GONE);
+        mFloatingWidgetView.findViewById(R.id.ll_action_button).setVisibility(View.GONE);
+        minimizeBar(mFloatingWidgetView.findViewById(R.id.ll_action_button).getContext());
+
+
+        if(show) timer.start(); else timer.cancel();
     }
 
     void expandMenu() {
@@ -364,6 +379,17 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         super.onTaskRemoved(rootIntent);
 
     }
+
+    CountDownTimer timer = new CountDownTimer(15000, 1000) {
+        @Override
+        public void onTick(long l) {
+        }
+
+        @Override
+        public void onFinish() {
+           showActionButtons(false);
+        }
+    };
 
 
     @Override
@@ -402,14 +428,13 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         }
     }
 
-    private void minimizeBar(Context v){
-        if(mFloatingWidgetView.findViewById(R.id.ll_action_button).getVisibility() == View.VISIBLE) {
+    private void minimizeBar(Context v) {
+        if (mFloatingWidgetView.findViewById(R.id.ll_action_button).getVisibility() == View.VISIBLE) {
             mFloatingWidgetView.findViewById(R.id.ll_action_button).setVisibility(View.GONE);
-            ((CustomTextView)mFloatingWidgetView.findViewById(R.id.close_floating_view)).setText(v.getString(R.string.mdi_undo_variant));
-        }
-        else {
+            ((CustomTextView) mFloatingWidgetView.findViewById(R.id.close_floating_view)).setText(v.getString(R.string.mdi_undo_variant));
+        } else {
             mFloatingWidgetView.findViewById(R.id.ll_action_button).setVisibility(View.VISIBLE);
-            ((CustomTextView)mFloatingWidgetView.findViewById(R.id.close_floating_view)).setText(v.getString(R.string.mdi_close));
+            ((CustomTextView) mFloatingWidgetView.findViewById(R.id.close_floating_view)).setText(v.getString(R.string.mdi_close));
         }
     }
 
@@ -555,7 +580,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         super.onDestroy();
 
         /*  on destroy remove both view from window manager */
-
+        Toast.makeText(this, "Service Stopped", Toast.LENGTH_SHORT).show();
         if (mFloatingWidgetView != null)
             mWindowManager.removeView(mFloatingWidgetView);
 

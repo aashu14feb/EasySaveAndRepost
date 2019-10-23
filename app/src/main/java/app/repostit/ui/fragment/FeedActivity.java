@@ -10,6 +10,13 @@ import android.widget.LinearLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+
+import java.io.Serializable;
 
 import app.repostit.AppActivity;
 import app.repostit.R;
@@ -20,16 +27,12 @@ import app.repostit.utils.AppConstants;
 import app.repostit.utils.Extras;
 import app.repostit.utils.Util;
 import app.repostit.widget.CustomTextView;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
-
-import java.io.Serializable;
 
 public class FeedActivity extends Fragment implements View.OnClickListener {
 
     LinearLayout ll_empty;
     CustomTextView btn_start;
+    SwipeRefreshLayout srl;
     RecyclerView recycler;
     InterstitialAd mInterstitialAd;
 
@@ -48,7 +51,7 @@ public class FeedActivity extends Fragment implements View.OnClickListener {
         super.onCreate(savedInstanceState);
 
 
-        if(AppConstants.SHOW_AD) {
+        if (AppConstants.SHOW_AD) {
             mInterstitialAd = new InterstitialAd(getContext());
 
             mInterstitialAd.setAdUnitId(getString(R.string.interstitial_detail));
@@ -77,6 +80,15 @@ public class FeedActivity extends Fragment implements View.OnClickListener {
             @Override
             public void onClick(View view) {
                 Util.openInstagram(getContext());
+            }
+        });
+
+        srl = view.findViewById(R.id.srl);
+        srl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                ((AppActivity) getActivity()).refresh();
+                srl.setRefreshing(false);
             }
         });
 

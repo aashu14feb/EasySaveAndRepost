@@ -17,8 +17,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -38,14 +40,14 @@ import app.repostit.ui.fragment.FeedActivity;
 import app.repostit.utils.DialogCoreUtil;
 import app.repostit.utils.Extras;
 import app.repostit.utils.Util;
-import pl.tajchert.nammu.Nammu;
-import pl.tajchert.nammu.PermissionCallback;
 
 import static android.content.ClipDescription.MIMETYPE_TEXT_PLAIN;
 
 public class AppActivity extends AppCompatActivity implements View.OnClickListener {
 
     public final static String filter = "https://www.instagram.com/";
+    public final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 1000;
+    int permission_request = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,7 +120,7 @@ public class AppActivity extends AppCompatActivity implements View.OnClickListen
             Intent intent = new Intent(this, IntroActivity.class);
             startActivity(intent);
         } else {
-            askPermissions();
+            askPermissions(-1);
         }
     }
 
@@ -165,29 +167,47 @@ public class AppActivity extends AppCompatActivity implements View.OnClickListen
 
     void openOverlaySettingPopup() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            askPermissions();
+            askPermissions(0);
         } else {
             createFloatingWidget();
         }
     }
 
-    void askPermissions() {
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+    void askPermissions(int forwhat) {
 
-            Nammu.askForPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE, new PermissionCallback() {
-                @Override
-                public void permissionGranted() {
-                }
+        permission_request = forwhat;
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
 
-                @Override
-                public void permissionRefused() {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE);
+        } else {
 
-                }
-            });
         }
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE: {
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    if (permission_request == 0) {
+                        createFloatingWidget();
+                    }
+
+                }
+                return;
+            }
+
+
+        }
+    }
 
     void createFloatingWidget() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -238,8 +258,12 @@ public class AppActivity extends AppCompatActivity implements View.OnClickListen
     @Override
     protected void onResume() {
         super.onResume();
-        addReplaceHomeFragment();
+        refresh();
         startFloatingWidgetService();
+    }
+
+    public void refresh() {
+        addReplaceHomeFragment();
     }
 
     private void startFloatingWidgetService() {
